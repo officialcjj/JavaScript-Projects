@@ -21,3 +21,7 @@ function My_First_Function() {
     var str = "This is the top button text!";
     document.getElementById("Button_Text") .innerHTML = str;
 }
+
+function displayDate() {
+    document.getElementById("demo").innerHTML = Date();
+  }
