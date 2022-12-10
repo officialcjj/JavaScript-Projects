@@ -3,7 +3,7 @@ document.write(typeof 105);
 document.write(3E333);
 document.write(-3E333);
 document.write(2>1);
-document.write(1>2);
+document.write(2<1);
 document.write(10==10);
 document.write(10==1);
 A = 02;
