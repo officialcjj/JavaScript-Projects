@@ -1,0 +1,73 @@
+#menuBG {
+    width: 400px;
+    height: 470px;
+    margin: 10px auto;
+}
+
+#frmMenu {
+    width: 400px;
+    height: 200px;
+}
+
+#totalPrice {
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    margin: 0 auto;
+    float: right;
+    border-radius: 20px;
+    border: 4px solid black;
+}
+
+.left {
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+
+.right {
+    width: 200px;
+    height: 200px;
+    float: right;
+}
+
+#showText {
+    width: 200px;
+    height: 190px;
+    margin: 0px auto;
+    float: left;
+}
+
+#cart {
+    top: 0;
+    margin: 0px auto;
+    width: 400px;
+    height: 200px;
+}
+
+#btnOrder {
+    margin: 10px 0px 0px 100px;
+    width: 100px;
+    height: 40px;
+}
+
+body {
+    border: 5px solid black;
+    background-color: rgb(223, 141, 74);
+    margin: 100px;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: aliceblue;
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(46, 109, 226);
+}
+
+div {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: azure;
+}
