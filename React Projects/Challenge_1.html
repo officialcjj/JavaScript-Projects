@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta lang="en"> 
+    <script src="react.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./my-app/jquery.slides.min.js"></script>
+    
+    <style>
+        body {
+            opacity: 1;
+            transition: 6s opacity;
+        }
+    
+        body.fade-out {
+            opacity: 0;
+            transition: none;
+        }
+
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+
+        .center {
+        height: 350px;
+        width: 400px;
+        text-align: center;
+        justify-content: center;
+        left: 50%;
+        top: 10px;
+        position: absolute;
+        }
+
+        /* Button used to open the contact form - fixed at the bottom of the page */
+        .open-button {
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 200px;
+        animation: mymove 4s infinite;
+        }
+
+        @keyframes mymove {
+            from {top: 0px;}
+            to {top: 250px;}
+        }
+
+        /* The popup form - hidden by default */
+        .form-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 1;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+        }
+
+        /* Full-width input fields */
+        .form-container input[type=text], .form-container input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+        }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+        }
+
+        /* Set a style for the submit/login button */
+        .form-container .btn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+        background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover, .open-button:hover {
+        opacity: 1;
+        }
+
+
+        @keyframes zoominoutsinglefeatured {
+        0% {
+            transform: scale(1,1);
+        }
+        50% {
+            transform: scale(1.2,1.2);
+        }
+        100% {
+            transform: scale(1,1);
+        }
+        }
+
+        .photo {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .photo img:hover{
+            animation: zoominoutsinglefeatured 3s forwards infinite;
+        }
+
+        .scroll img {
+            margin-top: 2000px;
+            width: 150px;
+            height: 150px;
+        }
+
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            height: 400px;
+            width: 500px;
+            background-color: rgba(233, 65, 121, 0.349);
+            border: 10px solid rgba(233, 65, 121, 0.349); 
+            border-radius: 20px; 
+        }
+
+        .container img {
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: white;
+            font: #008000;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 18px;
+            z-index: 100;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <a id="top"></a>
+
+    <button class="sticky">
+        <a href="#bottom">Bottom</a>
+    </button>
+
+    <button class="sticky">
+        <a href="#slideshow">Slideshow</a>
+    </button>
+
+    <button class="sticky">
+        <a href="#top">Top</a>
+    </button>
+
+    <script>
+        document.body.classList.add('fade-out');
+
+        window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.remove('fade-out');
+        });
+    </script>
+
+    <div  class="photo">
+        <img src="./img/skeleton.jpg" alt="skelly">
+    </div>   
+
+
+    <div class="center">
+        <h1 style="font-size:4vw">Log In</h1>
+
+        <form action="/action_page.php" class="was-validated">
+            <div class="form-group">
+            <label for="uname">Phone Number:</label>
+            <input type="text" class="form-control" id="uname" placeholder="Enter 10-Digit Phone Number" name="uname" required>
+            <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+            <div class="invalid-feedback">Please agree to our terms of service:</div>
+            </div>
+            <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember" required> I agree to the T.o.S.
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Check this checkbox to continue.</div>
+            </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form> 
+    </div>
+    
+    <!-- A button to open the popup form -->
+    <button class="open-button" onclick="openForm()">Open Form</button>
+
+    <!-- The form -->
+    <div class="form-popup" id="myForm">
+
+        <form action="/action_page.php" class="form-container">
+            <h1>Login</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+
+        <script>
+            function openForm() {
+            document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+            }
+        </script>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#slides').slidesjs({
+                width: 940,
+                height: 528,
+                play: {
+                active: true,
+                auto: true,
+                interval: 4000,
+                swap: true
+                }
+            });
+        });
+    </script>
+
+    <hr>
+        <div class="container" id="slideshow">
+            <div id="slides">
+                <img src="./img/skeleton-friends.jpg">
+                <img src="./img/skeleton-pickled-herring-dispute.jpg">
+                <img src="./img/skeleton-warfare.jpg">
+            </div>
+        </div> 
+    <hr>
+
+    <div class="scroll">
+        <img  id="bottom" src="./img/skeleton.jpg" alt="'lil fella">
+    </div> 
+
+</body>
+
+</html>
