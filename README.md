@@ -4,9 +4,9 @@ This is where I keep most of my JavaScript Projects
 
 ## Check them out:
 
-[Pizza Menu](https://github.com/officialcjj/JavaScript-Projects/blob/main/JavaScript%20Projects/Pizza.html)
-[Tic Tac Toe](https://github.com/officialcjj/JavaScript-Projects/blob/main/JavaScript%20Projects/TicTacToe.html)
-[Calculator](https://github.com/officialcjj/JavaScript-Projects/blob/main/JavaScript%20Projects/calculator.html)
+*[Pizza Menu](https://github.com/officialcjj/JavaScript-Projects/blob/main/JavaScript%20Projects/Pizza.html)
+*[Tic Tac Toe](https://github.com/officialcjj/JavaScript-Projects/blob/main/JavaScript%20Projects/TicTacToe.html)
+*[Calculator](https://github.com/officialcjj/JavaScript-Projects/blob/main/JavaScript%20Projects/calculator.html)
 
 ## Pizza Menu
 Allows you to put together an order and returns the total price
